@@ -22,18 +22,19 @@
           <br/>
           
           <select class="form-select" aria-label="Default select example">
-            <option selected>Open this select menu</option>
-            
-            <option value="1">One</option>
+            <option selected>Select Programming Language</option>
+            {% for lang in lang_list %}
+
+            <option value="{{lang}}"> {{lang|title}} </option>
+            {% endfor %}
             
           </select>
         <br/>
         
         <button type="submit" class="btn btn-primary">Submit</button>
         
-        
       </form>
-      
+      {% comment %} {{ lang_list }} {% endcomment %}
       
 
 
