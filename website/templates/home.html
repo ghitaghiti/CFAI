@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% if code %}
 
 <pre>
-    <code class= 'line-numbers language-python'>
-        if name =="rita":
-            print("hello girl")
-        else:
-            print("good by")
+  
+  <code class= "line-numbers language-{{lang}}">
+    {{code}}
+    
     </code>
-</pre>
+  </pre>
 <br/> <br/>
 
 <form  method=post actions="{% url 'home' %}">
@@ -17,11 +17,11 @@
      <form>
         
           <div class="mb-3">
-            <textarea class="form-control" name="code" placeholder ="have ai fix my code" rows="5"></textarea>
+            <textarea class="form-control" name="code" placeholder ="have ai fix my code" rows="5"> {{code}} </textarea>
           </div>
           <br/>
           
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select" name="lang">
             <option selected>Select Programming Language</option>
             {% for lang in lang_list %}
 
@@ -29,14 +29,46 @@
             {% endfor %}
             
           </select>
-        <br/>
+          <br/>
         
         <button type="submit" class="btn btn-primary">Submit</button>
         
       </form>
       {% comment %} {{ lang_list }} {% endcomment %}
+      {% else %}
       
-
-
-{% endblock %}
+      <pre>
+        
+        <code class= "line-numbers language-python">
+          
+          </code>
+        </pre>
+      <br/> <br/>
+      
+      <form  method=post actions="{% url 'home' %}">
+           {% csrf_token %} 
+           <form>
+              
+                <div class="mb-3">
+                  <textarea class="form-control" name="code" placeholder ="have ai fix my code" rows="5"></textarea>
+                </div>
+                <br/>
+                
+                <select class="form-select" name="lang">
+                  <option selected>Select Programming Language</option>
+                  {% for lang in lang_list %}
+      
+                  <option value="{{lang}}"> {{lang|title}} </option>
+                  {% endfor %}
+                  
+                </select>
+                <br/>
+              
+              <button type="submit" class="btn btn-primary">Submit</button>
+              
+            </form>
+            {% comment %} {{ lang_list }} {% endcomment %}
+      
+      {% endif %}
+      {% endblock %}
 
