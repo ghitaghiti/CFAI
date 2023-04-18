@@ -5,5 +5,5 @@ from django.urls import path
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('suggest/',views.suggest, name='suggest')
+    path('suggest/', views.suggest, name='suggest')
 ]
