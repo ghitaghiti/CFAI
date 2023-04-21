@@ -12,11 +12,7 @@
 
 </code>
 </pre>
-
 <br/><br/>
-
-
-
 
 <form method=POST action="{% url 'home' %}">
 	{% csrf_token %}
@@ -40,13 +36,6 @@
 
 </form>
 <br/>
-
-
-
-
-
-
-
 
 {% else %}
 
@@ -111,114 +100,3 @@ else:
 </div>
 {% endif %}
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-{% comment %} {% extends 'base.html' %}
-
-{% block content %}
-{% if user.is_authentificated %}
-{% if response %}
-
-<pre>
-  
-  <code class= "line-numbers language-{{lang}}">
-    {{response}}
-    
-    </code>
-  </pre>
-<br/> <br/>
-
-<form  method=post actions="{% url 'home' %}">
-     {% csrf_token %} 
-     <form>
-        
-          <div class="mb-3">
-            <textarea class="form-control" name="code" placeholder ="have ai fix my code" rows="5"> {{code}} </textarea>
-          </div>
-          <br/>
-          
-          <select class="form-select" name="lang">
-            <option selected>Select Programming Language</option>
-            {% for lang in lang_list %}
-
-            <option value="{{lang}}"> {{lang|title}} </option>
-            {% endfor %}
-            
-          </select>
-          <br/>
-        
-        <button type="submit" class="btn btn-primary">Submit</button>
-        
-      </form>
-      {% else %}
-      
-      <pre>
-        
-        <code class= "line-numbers language-python">
-          
-          </code>
-        </pre>
-      <br/> <br/>
-      
-      <form  method=post actions="{% url 'home' %}">
-           {% csrf_token %} 
-           <form>
-              
-                <div class="mb-3">
-                  <textarea class="form-control" name="code" placeholder ="have ai fix my code" rows="5"></textarea>
-                </div>
-                <br/>
-                
-                <select class="form-select" name="lang">
-                  <option selected>Select Programming Language</option>
-                  {% for lang in lang_list %}
-      
-                  <option value="{{lang}}"> {{lang|title}} </option>
-                  {% endfor %}
-                  
-                </select>
-                <br/>
-              
-              <button type="submit" class="btn btn-primary">Submit</button>
-              
-            </form>
-      
-      {% endif %}
-
-      {% else %}
-      <div class= "call-md-6 offset-md-3">
-        <h1> Login </h1>
-        <br/>
-        <form method="POST" action= "{% url 'login' %}">
-        {% csrf_token %}
-        <div class= "form-group">
-          <input type= "text" class="form-control" placeholder="Enter User Name" name="user name">
-          <br/>
-        </div>
-
-        <div class= "form-group">
-          <input type= "text" class="form-control" placeholder="Enter Password" name="password">
-          <br/>
-        </div>
-        <br/>
-        
-        <button type="submit" class="btn btn-secondary">Login</button>
-        </form>
-      </div>
-      {% endif %}
-
-
-      {% endblock %}
-
-       {% endcomment %}
