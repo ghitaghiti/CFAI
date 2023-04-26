@@ -7,7 +7,7 @@ from .forms import SignUpForm
 from .models import Code
 
 def home(request):
-	lang_list = ['c', 'clike', 'cpp', 'csharp', 'css', 'go', 'html', 'java', 'javascript', 'julia', 'markup', 'php', 'python']
+	lang_list = ['c', 'clike', 'cpp', 'csharp', 'css', 'dart', 'django', 'go', 'html', 'java', 'javascript', 'markup', 'markup-templating', 'matlab', 'mongodb', 'objectivec', 'perl', 'php', 'powershell', 'python', 'r', 'regex', 'ruby', 'rust', 'sass', 'scala', 'sql', 'swift', 'yaml']
 
 	if request.method == "POST":
 		code = request.POST['code']
@@ -52,7 +52,7 @@ def home(request):
 
 
 def suggest(request):
-	lang_list = ['c', 'clike', 'cpp', 'csharp', 'css', 'go', 'html', 'java', 'javascript', 'julia', 'markup', 'php', 'python']
+	lang_list = ['c', 'clike', 'cpp', 'csharp', 'css', 'dart', 'django', 'go', 'html', 'java', 'javascript', 'markup', 'markup-templating', 'matlab', 'mongodb', 'objectivec', 'perl', 'php', 'powershell', 'python', 'r', 'regex', 'ruby', 'rust', 'sass', 'scala', 'sql', 'swift', 'yaml']
 
 	if request.method == "POST":
 		code = request.POST['code']
