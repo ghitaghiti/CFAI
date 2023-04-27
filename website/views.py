@@ -4,7 +4,15 @@ import openai
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
-from .models import Code
+from .models import Code, Slider
+
+
+def radical(request):
+	sliderdata= Slider.objects.all()
+	context= {
+		'slider': sliderdata
+	}
+	return render(request, 'radical.html', context)
 
 def home(request):
 	lang_list = ['c', 'clike', 'cpp', 'csharp', 'css', 'dart', 'django', 'go', 'html', 'java', 'javascript', 'markup', 'markup-templating', 'matlab', 'mongodb', 'objectivec', 'perl', 'php', 'powershell', 'python', 'r', 'regex', 'ruby', 'rust', 'sass', 'scala', 'sql', 'swift', 'yaml']
@@ -19,7 +27,7 @@ def home(request):
 			return render(request, 'home.html', {'lang_list':lang_list, 'response':code, 'code':code, 'lang':lang})			
 		else:
 			# OpenAI Key
-			openai.api_key = ""
+			openai.api_key = "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"
 			# Create OpenAI Instance
 			openai.Model.list()
 			# Make an OpenAI Request
@@ -48,9 +56,6 @@ def home(request):
 	return render(request, 'home.html', {'lang_list':lang_list})
 
 
-
-
-
 def suggest(request):
 	lang_list = ['c', 'clike', 'cpp', 'csharp', 'css', 'dart', 'django', 'go', 'html', 'java', 'javascript', 'markup', 'markup-templating', 'matlab', 'mongodb', 'objectivec', 'perl', 'php', 'powershell', 'python', 'r', 'regex', 'ruby', 'rust', 'sass', 'scala', 'sql', 'swift', 'yaml']
 
@@ -64,7 +69,7 @@ def suggest(request):
 			return render(request, 'suggest.html', {'lang_list':lang_list, 'code':code, 'lang':lang, 'response':code})			
 		else:
 			# OpenAI Key
-			openai.api_key = ""
+			openai.api_key = "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"
 			# Create OpenAI Instance
 			openai.Model.list()
 			# Make an OpenAI Request
@@ -102,13 +107,13 @@ def login_user(request):
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
-			messages.success(request, "You Have Been Logged In!  Woohoo!")
-			return redirect('home')
+			messages.success(request, "You Have Been Logged In!")
+			return redirect('radical')
 		else:
 			messages.success(request, "Error Logging In. Please Try Again...")
-			return redirect('home')
+			return redirect('radical')
 	else:
-		return render(request, 'home.html', {})
+		return render(request, 'radical.html', {})
 
 def logout_user(request):
 	logout(request)
