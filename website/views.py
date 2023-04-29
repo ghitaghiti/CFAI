@@ -153,3 +153,7 @@ def delete_past(request, Past_id):
 	past.delete()
 	messages.success(request, "Deleted Successfully...")
 	return redirect('past')
+
+def contact(request):
+	return render(request, 'contact.html', {})	
+

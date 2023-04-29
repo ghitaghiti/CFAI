@@ -31,16 +31,16 @@
                                         <div class="text text-left text-lg-right p-4 px-xl-5 d-flex align-items-center">
                                             <div class="desc w-100">
                                                 <h2 class="mb-4"> {{ row.title }}</h2>
-                                                <p class="h5">Call: +212 665-721781</p>
-                                                <p class="h5 mb-4">Email Address: ghitighita10@gmail.com</p>
+                                                {% comment %} <p class="h5">Call: +212 665-721781</p>
+                                                <p class="h5 mb-4">Email Address: ghitighita10@gmail.com</p> {% endcomment %}
                                                 <div class="row justify-content-end">
                                                     <div class="col-xl-8">
                                                         <p>{{ row.description }}</p>
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    <a href ="{% url 'register' %}" class="btn btn-outline-dark mb-2 py-3 px-4">Register</button>
-                                                    <a href ="{% url 'home' %}" class="btn btn-dark mb-2 py-3 px-4">Login</a>
+                                                    <a href="{% url 'register' %}" class="btn btn-outline-dark mb-2 py-3 px-4">Register</a>
+                                                    <a href="{% url 'home' %}" class="btn btn-dark mb-2 py-3 px-4">Login</a>
                                                 </p>
                                             </div>
                                         </div>
