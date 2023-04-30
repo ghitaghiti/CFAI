@@ -108,16 +108,16 @@ def login_user(request):
 		if user is not None:
 			login(request, user)
 			messages.success(request, "You Have Been Logged In!")
-			return redirect('radical')
+			return redirect('suggest')
 		else:
 			messages.success(request, "Error Logging In. Please Try Again...")
-			return redirect('radical')
+			return redirect('suggest')
 	else:
-		return render(request, 'radical.html', {})
+		return render(request, 'home.html', {})
 
 def logout_user(request):
 	logout(request)
-	messages.success(request, "You Have Been Logged Out... Have A Nice Day!")
+	messages.success(request, "You Have Been Logged Out...")
 	return redirect('home')
 
 
