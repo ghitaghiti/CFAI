@@ -118,7 +118,7 @@ def login_user(request):
 def logout_user(request):
 	logout(request)
 	messages.success(request, "You Have Been Logged Out...")
-	return redirect('home')
+	return redirect('radical')
 
 
 def register_user(request):
