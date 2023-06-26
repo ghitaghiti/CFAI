@@ -1,0 +1,75 @@
+@startuml
+
+class Migration {
+    + run(): void
+}
+
+class WebsiteConfig {
+    - siteName: string
+    - theme: string
+    + getSiteName(): string
+    + setSiteName(name: string): void
+    + getTheme(): string
+    + setTheme(theme: string): void
+}
+
+class SignupForm {
+    - email: string
+    - password: string
+    + getEmail(): string
+    + setEmail(email: string): void
+    + getPassword(): string
+    + setPassword(password: string): void
+    + validate(): boolean
+}
+
+class Code {
+    - codeId: string
+    - codeText: string
+    - language: string
+    - user: User
+    + getCodeId(): string
+    + setCodeId(codeId: string): void
+    + getCodeText(): string
+    + setCodeText(codeText: string): void
+    + getLanguage(): string
+    + setLanguage(language: string): void
+    + getUser(): User
+    + setUser(user: User): void
+}
+
+class Slider {
+    - sliderId: string
+    - sliderImage: string
+    - sliderText: string
+    + getSliderId(): string
+    + setSliderId(sliderId: string): void
+    + getSliderImage(): string
+    + setSliderImage(sliderImage: string): void
+    + getSliderText(): string
+    + setSliderText(sliderText: string): void
+}
+
+class User {
+    - userId: string
+    - username: string
+    - email: string
+    - password: string
+    + getUserId(): string
+    + setUserId(userId: string): void
+    + getUsername(): string
+    + setUsername(username: string): void
+    + getEmail(): string
+    + setEmail(email: string): void
+    + getPassword(): string
+    + setPassword(password: string): void
+}
+
+Migration --> WebsiteConfig
+WebsiteConfig --> SignupForm
+WebsiteConfig --> Slider
+SignupForm --> User
+Code --> User
+Slider --> Code
+
+@enduml

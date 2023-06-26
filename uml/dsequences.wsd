@@ -1,0 +1,36 @@
+@startuml
+
+actor Utilisateur
+participant "Base de données"
+
+autonumber
+
+Utilisateur -> Utilisateur: Navigue sur le site
+Utilisateur -> Utilisateur: Consulte le slider
+
+Utilisateur -> Utilisateur: Clique sur le bouton "Login"
+Utilisateur -> Utilisateur: Saisit les informations d'identification
+Utilisateur -> Utilisateur: Valide le formulaire de connexion
+
+Utilisateur -> Utilisateur: Clique sur le bouton "Enregistrer"
+Utilisateur -> Utilisateur: Saisit les informations d'inscription
+Utilisateur -> Utilisateur: Valide le formulaire d'inscription
+
+Utilisateur -> Utilisateur: Sélectionne un langage de programmation
+Utilisateur -> Utilisateur: Saisit son idée de code
+Utilisateur -> Utilisateur: Soumet le code personnalisé
+
+Utilisateur -> Utilisateur: Sélectionne un code à corriger
+Utilisateur -> Utilisateur: Demande la correction
+Utilisateur -> Utilisateur: Soumet les modifications du code
+
+Utilisateur -> Utilisateur: Consulte les codes soumis
+Utilisateur -> Utilisateur: Consulte les corrections proposées
+
+Utilisateur -> Utilisateur: Déconnexion
+
+Utilisateur -> Utilisateur: Ferme le site
+
+Utilisateur -> "Base de données": Requêtes et mises à jour des données
+
+@enduml
